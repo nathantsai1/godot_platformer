@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcaqs3k1pik84"]
+
+[ext_resource type="Texture2D" uid="uid://ban24wv8aca2w" path="res://images/Jump (32x32) - Copy.png" id="1_0anr6"]
+[ext_resource type="Script" path="res://mobs.gd" id="1_n8b0l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c5fxe"]
+radius = 8.0
+height = 28.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lwxr2"]
+load_path = "res://.godot/imported/Jump (32x32).png-91bf01789c567d31f5c28cd22911709b.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7fc8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_lwxr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0anr6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="mob" type="RigidBody2D" groups=["mobs"]]
+script = ExtResource("1_n8b0l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(21, 13)
+shape = SubResource("CapsuleShape2D_c5fxe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(21, 12)
+sprite_frames = SubResource("SpriteFrames_7fc8y")

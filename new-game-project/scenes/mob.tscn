@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcaqs3k1pik84"]
+
+[ext_resource type="Texture2D" uid="uid://ban24wv8aca2w" path="res://images/Jump (32x32) - Copy.png" id="2_kr2ii"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c5fxe"]
+radius = 22.0
+height = 60.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lwxr2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7fc8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_lwxr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kr2ii")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="mob" type="RigidBody2D" groups=["mobs"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(115, 46)
+shape = SubResource("CapsuleShape2D_c5fxe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(115, 46)
+scale = Vector2(2.375, 2.28125)
+sprite_frames = SubResource("SpriteFrames_7fc8y")
